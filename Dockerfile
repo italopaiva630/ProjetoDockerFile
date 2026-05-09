@@ -1,5 +1,5 @@
 # Imagem base para o Spring Boot com Java 21
-FROM eclipse-temurin:21
+FROM eclipse-temurin:25
 
 # Define o diretório de trabalho
 WORKDIR /app
