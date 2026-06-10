@@ -1,4 +1,5 @@
 # Imagem base para o Spring Boot com Java 25
+
 FROM eclipse-temurin:25
 
 # Define o diretório de trabalho

@@ -1,5 +1,5 @@
 # ---- Stage 1: Build ----
-FROM maven:3.9.15-eclipse-temurin-25-alpine AS builder
+FROM maven AS builder
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ COPY src ./src
 RUN mvn clean package
 
 # ---- Stage 2: Runtime ----
-FROM eclipse-temurin:25.0.3_9-jre-alpine-3.23
+FROM eclipse-temurin
 
 WORKDIR /app
 
@@ -21,4 +21,5 @@ WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
